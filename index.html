@@ -82,6 +82,17 @@
             height: 600px;
             border-radius: 8px;
         }
+        .tableau-fallback {
+            display: none;
+            background-color: #ffe6e6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .tableau-fallback a {
+            color: #2c3e50;
+            text-decoration: underline;
+        }
         canvas {
             max-width: 600px;
             margin: 20px auto;
@@ -127,4 +138,71 @@
 
         <div class="section tableau-section" id="tableau">
             <h2>תצוגת Tableau – הכלי המוביל לניתוח נתונים! 🌟</h2>
-            <p>תצוגות
+            <p>תצוגות Tableau מאפשרות לכם לחקור נתונים בצורה אינטראקטיבית. הקישור המוטמע כאן הוא חשוב ביותר מכיוון שהוא מאפשר לכם לראות נתונים בזמן אמת ולקבל תובנות מיידיות! 🔗</p>
+            <iframe id="tableauIframe" src="https://public.tableau.com/views/ELADWEV/Dashboard2?:language=en-US&publish=yes&:embed=y&:display_count=n&:origin=viz_share_link" allowfullscreen></iframe>
+            <div class="tableau-fallback" id="tableauFallback">
+                <p>⚠️ נראה שהתוכן של Tableau לא נטען. זה עשוי לקרות אם אתה פותח את האתר ישירות מקובץ מקומי. אנא הרץ את האתר דרך שרת (למשל, עם Live Server) או לחץ על הקישור הבא כדי לראות את הוויזואליזציה ישירות:</p>
+                <p><a href="https://public.tableau.com/views/ELADWEV/Dashboard2?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" target="_blank">פתח את הוויזואליזציה של Tableau 🖼️</a></p>
+            </div>
+        </div>
+
+        <div class="section" id="about">
+            <h2>מי אנחנו? 🤗</h2>
+            <p>אנחנו צוות של חובבי נתונים שרוצים להפוך את ניתוח הנתונים לחוויה מהנה ופשוטה. הצטרפו אלינו למסע מלא תובנות! 🌍</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 אתר ניתוח נתונים – כל הזכויות שמורות 💻</p>
+    </footer>
+
+    <!-- חיבור לספריית Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // הגדרת הגרף
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line', // סוג הגרף: קו
+            data: {
+                labels: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי'],
+                datasets: [{
+                    label: 'מכירות חודשיות (באלפים)',
+                    data: [12, 19, 3, 5, 2],
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // בדיקה אם ה-iframe של Tableau נטען בהצלחה
+        const tableauIframe = document.getElementById('tableauIframe');
+        const tableauFallback = document.getElementById('tableauFallback');
+
+        tableauIframe.onerror = function() {
+            tableauFallback.style.display = 'block';
+        };
+
+        tableauIframe.onload = function() {
+            // אם ה-iframe נטען בהצלחה, ודא שה-fallback לא מוצג
+            tableauFallback.style.display = 'none';
+        };
+    </script>
+</body>
+</html>
