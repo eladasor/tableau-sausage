@@ -79,7 +79,7 @@
         .tableau-section iframe {
             border: none;
             width: 100%;
-            height: 600px; /* גובה מותאם לוויזואליזציה */
+            height: 600px;
             border-radius: 8px;
         }
         canvas {
@@ -127,55 +127,4 @@
 
         <div class="section tableau-section" id="tableau">
             <h2>תצוגת Tableau – הכלי המוביל לניתוח נתונים! 🌟</h2>
-            <p>תצוגות Tableau מאפשרות לכם לחקור נתונים בצורה אינטראקטיבית. הקישור המוטמע כאן הוא חשוב ביותר מכיוון שהוא מאפשר לכם לראות נתונים בזמן אמת ולקבל תובנות מיידיות! 🔗</p>
-            <!-- הקישור של ה-Tableau מוטמע כאן -->
-            <iframe src="https://public.tableau.com/views/ELADWEV/Dashboard2?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" allowfullscreen></iframe>
-        </div>
-
-        <div class="section" id="about">
-            <h2>מי אנחנו? 🤗</h2>
-            <p>אנחנו צוות של חובבי נתונים שרוצים להפוך את ניתוח הנתונים לחוויה מהנה ופשוטה. הצטרפו אלינו למסע מלא תובנות! 🌍</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2025 אתר ניתוח נתונים – כל הזכויות שמורות 💻</p>
-    </footer>
-
-    <!-- חיבור לספריית Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // הגדרת הגרף
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'line', // סוג הגרף: קו
-            data: {
-                labels: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי'],
-                datasets: [{
-                    label: 'מכירות חודשיות (באלפים)',
-                    data: [12, 19, 3, 5, 2],
-                    fill: false,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: {
-                            font: {
-                                size: 14
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+            <p>תצוגות
