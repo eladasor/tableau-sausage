@@ -76,22 +76,9 @@
             text-align: center;
             margin: 20px 0;
         }
-        .tableau-section iframe {
-            border: none;
-            width: 100%;
-            height: 600px;
+        .tableau-section .tableauPlaceholder {
             border-radius: 8px;
-        }
-        .tableau-fallback {
-            display: none;
-            background-color: #ffe6e6;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-        .tableau-fallback a {
-            color: #2c3e50;
-            text-decoration: underline;
+            overflow: hidden;
         }
         canvas {
             max-width: 600px;
@@ -139,11 +126,42 @@
         <div class="section tableau-section" id="tableau">
             <h2>תצוגת Tableau – הכלי המוביל לניתוח נתונים! 🌟</h2>
             <p>תצוגות Tableau מאפשרות לכם לחקור נתונים בצורה אינטראקטיבית. הקישור המוטמע כאן הוא חשוב ביותר מכיוון שהוא מאפשר לכם לראות נתונים בזמן אמת ולקבל תובנות מיידיות! 🔗</p>
-            <iframe id="tableauIframe" src="https://public.tableau.com/views/ELADWEV/Dashboard2?:language=en-US&publish=yes&:embed=y&:display_count=n&:origin=viz_share_link" allowfullscreen></iframe>
-            <div class="tableau-fallback" id="tableauFallback">
-                <p>⚠️ נראה שהתוכן של Tableau לא נטען. זה עשוי לקרות אם אתה פותח את האתר ישירות מקובץ מקומי. אנא הרץ את האתר דרך שרת (למשל, עם Live Server) או לחץ על הקישור הבא כדי לראות את הוויזואליזציה ישירות:</p>
-                <p><a href="https://public.tableau.com/views/ELADWEV/Dashboard2?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" target="_blank">פתח את הוויזואליזציה של Tableau 🖼️</a></p>
+            <!-- קוד ההטמעה של Tableau -->
+            <div class='tableauPlaceholder' id='viz169876543210' style='position: relative'>
+                <noscript>
+                    <a href='#'>
+                        <img alt='Dashboard2 ' src='https://public.tableau.com/static/images/EL/ELADWEV/Dashboard2/1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='' />
+                    <param name='name' value='ELADWEV/Dashboard2' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https://public.tableau.com/static/images/EL/ELADWEV/Dashboard2/1.png' />
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='no' />
+                    <param name='language' value='en-US' />
+                    <param name='publish' value='yes' />
+                    <param name='origin' value='viz_share_link' />
+                </object>
             </div>
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz169876543210');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                vizElement.style.width='100%';
+                vizElement.style.height='600px'; // גובה קבוע לוויזואליזציה
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+            <!-- קישור חלופי למקרה שהטמעה לא עובדת -->
+            <p style="margin-top: 10px;">אם הוויזואליזציה לא נטענת, נסה לפתוח אותה ישירות: <a href="https://public.tableau.com/views/ELADWEV/Dashboard2?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" target="_blank">פתח את הוויזואליזציה של Tableau 🖼️</a></p>
         </div>
 
         <div class="section" id="about">
@@ -190,19 +208,6 @@
                 }
             }
         });
-
-        // בדיקה אם ה-iframe של Tableau נטען בהצלחה
-        const tableauIframe = document.getElementById('tableauIframe');
-        const tableauFallback = document.getElementById('tableauFallback');
-
-        tableauIframe.onerror = function() {
-            tableauFallback.style.display = 'block';
-        };
-
-        tableauIframe.onload = function() {
-            // אם ה-iframe נטען בהצלחה, ודא שה-fallback לא מוצג
-            tableauFallback.style.display = 'none';
-        };
     </script>
 </body>
 </html>
